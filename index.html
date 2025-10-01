@@ -1,0 +1,571 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Selamat Ulang Tahun ke-16 💖</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600;700&family=Inter:wght@300;400;500;600;700&display=swap');
+    
+    :root{
+      --primary:#ff6b9a;
+      --secondary:#ffb5d3;
+      --accent:#ffd4e5;
+      --dark:#2d2d2d;
+      --gray:#6b6b6b;
+      --light:#fafafa;
+      --white:#ffffff;
+    }
+    
+    *{box-sizing:border-box;margin:0;padding:0}
+    
+    body{
+      min-height:100vh;
+      font-family:'Inter', sans-serif;
+      background:linear-gradient(135deg, #fff5f8 0%, #ffeef5 100%);
+      color:var(--dark);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      padding:1rem;
+      overflow-x:hidden;
+    }
+    
+    .card{
+      width:100%;
+      max-width:650px;
+      background:var(--white);
+      border-radius:20px;
+      box-shadow:0 10px 40px rgba(255,107,154,0.15);
+      overflow:hidden;
+      transform:scale(1);
+      transition:transform 0.3s ease;
+    }
+    
+    .card:active{
+      transform:scale(0.98);
+    }
+    
+    .photo-section{
+      padding:50px 30px 30px;
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+      background:linear-gradient(135deg, #fff 0%, #fef8fa 100%);
+      position:relative;
+    }
+    
+    .photo-frame{
+      width:180px;
+      height:180px;
+      border-radius:50%;
+      overflow:hidden;
+      border:4px solid var(--white);
+      box-shadow:0 10px 30px rgba(255,107,154,0.2);
+      position:relative;
+      transition:transform 0.3s ease;
+    }
+    
+    .photo-frame:hover{
+      transform:scale(1.05);
+    }
+    
+    .photo-frame img{
+      width:100%;
+      height:100%;
+      object-fit:cover;
+      display:block;
+    }
+    
+    .content{
+      padding:30px 30px 50px;
+      text-align:center;
+    }
+    
+    .title{
+      font-family:'Cormorant Garamond', serif;
+      font-size:2.8rem;
+      font-weight:700;
+      color:var(--primary);
+      margin-bottom:12px;
+      letter-spacing:-0.5px;
+      position:relative;
+      display:inline-block;
+    }
+    
+    .title:after{
+      content:'';
+      position:absolute;
+      bottom:-5px;
+      left:50%;
+      transform:translateX(-50%);
+      width:40px;
+      height:3px;
+      background:var(--primary);
+      border-radius:2px;
+    }
+    
+    .subtitle{
+      font-size:0.9rem;
+      color:var(--gray);
+      margin-bottom:25px;
+      font-weight:500;
+      letter-spacing:3px;
+      text-transform:uppercase;
+      opacity:0.8;
+    }
+    
+    .divider{
+      width:60px;
+      height:2px;
+      background:linear-gradient(90deg, transparent, var(--primary), transparent);
+      margin:25px auto;
+    }
+    
+    .big-num{
+      font-family:'Cormorant Garamond', serif;
+      font-size:4.5rem;
+      font-weight:700;
+      color:var(--primary);
+      margin:20px 0;
+      line-height:1;
+      position:relative;
+      display:inline-block;
+    }
+    
+    .big-num:after{
+      content:'th';
+      position:absolute;
+      font-size:1rem;
+      top:5px;
+      right:-25px;
+      font-weight:400;
+      font-family:'Inter', sans-serif;
+    }
+    
+    .message{
+      font-size:1.1rem;
+      line-height:1.8;
+      color:var(--gray);
+      margin:30px auto;
+      max-width:500px;
+      font-weight:400;
+      text-align:justify;
+      position:relative;
+      padding:0 10px;
+    }
+    
+    .message:before, .message:after{
+      content:'"';
+      font-family:'Cormorant Garamond', serif;
+      font-size:3rem;
+      position:absolute;
+      color:var(--accent);
+      opacity:0.5;
+    }
+    
+    .message:before{
+      top:-15px;
+      left:-10px;
+    }
+    
+    .message:after{
+      content:'"';
+      bottom:-30px;
+      right:-10px;
+    }
+    
+    .controls{
+      display:flex;
+      gap:15px;
+      justify-content:center;
+      margin-top:40px;
+      flex-wrap:wrap;
+    }
+    
+    .btn{
+      background:var(--primary);
+      color:var(--white);
+      padding:16px 32px;
+      border-radius:30px;
+      border:0;
+      font-weight:600;
+      font-size:1rem;
+      cursor:pointer;
+      transition:all 0.3s ease;
+      font-family:'Inter', sans-serif;
+      box-shadow:0 4px 15px rgba(255,107,154,0.2);
+      position:relative;
+      overflow:hidden;
+    }
+    
+    .btn:before{
+      content:'';
+      position:absolute;
+      top:0;
+      left:0;
+      width:100%;
+      height:100%;
+      background:rgba(255,255,255,0.2);
+      transform:translateX(-100%);
+      transition:transform 0.5s ease;
+    }
+    
+    .btn:hover:before{
+      transform:translateX(0);
+    }
+    
+    .btn:hover{
+      background:#ff5284;
+      transform:translateY(-3px);
+      box-shadow:0 8px 25px rgba(255,107,154,0.3);
+    }
+    
+    .btn:active{
+      transform:translateY(0);
+    }
+    
+    .btn.secondary{
+      background:transparent;
+      color:var(--primary);
+      border:2px solid var(--primary);
+      box-shadow:none;
+    }
+    
+    .btn.secondary:hover{
+      background:var(--primary);
+      color:var(--white);
+      box-shadow:0 4px 15px rgba(255,107,154,0.2);
+    }
+    
+    /* Simple confetti */
+    #confetti{
+      position:fixed;
+      left:0;
+      top:0;
+      width:100vw;
+      height:100vh;
+      pointer-events:none;
+      z-index:999;
+    }
+    
+    /* Minimal floating hearts */
+    .hearts{
+      position:absolute;
+      right:20px;
+      top:20px;
+      pointer-events:none;
+      width:100%;
+      height:100%;
+      top:0;
+      left:0;
+      z-index:1;
+      overflow:hidden;
+    }
+    
+    .heart{
+      position:absolute;
+      font-size:20px;
+      opacity:0;
+      animation:heartFloat 3s ease-out forwards;
+    }
+    
+    @keyframes heartFloat{
+      0%{
+        opacity:0;
+        transform:translateY(0) scale(0.5) rotate(0deg);
+      }
+      20%{
+        opacity:0.8;
+      }
+      100%{
+        opacity:0;
+        transform:translateY(-150px) scale(1.2) rotate(360deg);
+      }
+    }
+    
+    /* Responsive */
+    @media(max-width:768px){
+      body{
+        padding:0.5rem;
+      }
+      
+      .card{
+        border-radius:16px;
+        box-shadow:0 5px 20px rgba(255,107,154,0.1);
+      }
+      
+      .photo-section{
+        padding:40px 20px 25px;
+      }
+      
+      .photo-frame{
+        width:150px;
+        height:150px;
+      }
+      
+      .content{
+        padding:25px 25px 40px;
+      }
+      
+      .title{
+        font-size:2.2rem;
+      }
+      
+      .big-num{
+        font-size:3.5rem;
+      }
+      
+      .message{
+        font-size:1rem;
+        margin:20px auto;
+      }
+      
+      .btn{
+        padding:14px 28px;
+        font-size:0.95rem;
+      }
+      
+      .controls{
+        gap:10px;
+        margin-top:30px;
+      }
+    }
+    
+    @media(max-width:480px){
+      body{
+        padding:0;
+      }
+      
+      .card{
+        border-radius:12px;
+        box-shadow:0 3px 15px rgba(255,107,154,0.08);
+      }
+      
+      .photo-section{
+        padding:30px 15px 20px;
+      }
+      
+      .photo-frame{
+        width:130px;
+        height:130px;
+      }
+      
+      .content{
+        padding:20px 20px 30px;
+      }
+      
+      .title{
+        font-size:1.8rem;
+      }
+      
+      .big-num{
+        font-size:3rem;
+      }
+      
+      .message{
+        font-size:0.95rem;
+        margin:15px auto;
+      }
+      
+      .btn{
+        padding:12px 24px;
+        font-size:0.9rem;
+        width:100%;
+        max-width:200px;
+      }
+      
+      .controls{
+        flex-direction:column;
+        gap:10px;
+        margin-top:25px;
+      }
+      
+      .btn.secondary{
+        order:-1;
+      }
+    }
+    
+    /* Animasi masuk */
+    @keyframes fadeInUp{
+      from{
+        opacity:0;
+        transform:translateY(30px);
+      }
+      to{
+        opacity:1;
+        transform:translateY(0);
+      }
+    }
+    
+    .card{
+      animation:fadeInUp 0.8s ease-out;
+    }
+    
+    .photo-section, .content{
+      animation:fadeInUp 0.8s ease-out 0.2s both;
+    }
+    
+    .title, .big-num{
+      animation:fadeInUp 0.8s ease-out 0.4s both;
+    }
+    
+    .message, .controls{
+      animation:fadeInUp 0.8s ease-out 0.6s both;
+    }
+  </style>
+</head>
+<body>
+  <canvas id="confetti"></canvas>
+  
+  <div class="card">
+    <div class="photo-section">
+      <div class="photo-frame">
+        <!-- GANTI URL FOTO DI SINI -->
+        <img src="IMG-20250919-WA0140 (2).jpg" alt="Foto ulang tahun">
+      </div>
+    </div>
+    
+    <div class="content">
+      <div class="hearts"></div>
+      
+      <h1 class="title">Selamat Ulang Tahun</h1>
+      <div class="subtitle">Sweet Sixteen</div>
+      
+      <div class="divider"></div>
+      
+      <div class="big-num">16</div>
+      
+      <div class="divider"></div>
+      
+      <p class="message">
+        Di hari spesial ini, aku ingin kamu tahu betapa berharganya kamu dalam hidupku. 
+        Semoga di usia 16 tahun ini, semua impian dan harapanmu menjadi kenyataan. 
+        Terima kasih sudah menjadi bagian terbaik dari hari-hariku. 
+        Happy birthday, sayang! 💖
+      </p>
+      
+      <div class="controls">
+        <button class="btn secondary" id="messageBtn">Pesan Spesial</button>
+        <button class="btn" id="celebrateBtn">Rayakan</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const q = sel => document.querySelector(sel);
+    
+    // Simple floating hearts
+    function createHeart(){
+      const heartsContainer = q('.hearts');
+      const heart = document.createElement('div');
+      heart.className = 'heart';
+      heart.textContent = '💖';
+      heart.style.left = Math.random() * 100 + '%';
+      heart.style.top = Math.random() * 100 + '%';
+      heart.style.fontSize = (15 + Math.random() * 15) + 'px';
+      heartsContainer.appendChild(heart);
+      
+      setTimeout(() => heart.remove(), 3000);
+    }
+    
+    function showHearts(){
+      for(let i = 0; i < 8; i++){
+        setTimeout(() => createHeart(), i * 150);
+      }
+    }
+    
+    // Confetti system
+    const canvas = q('#confetti');
+    const ctx = canvas.getContext('2d');
+    
+    function resize(){
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+    }
+    window.addEventListener('resize', resize);
+    resize();
+    
+    let confetti = [];
+    
+    function Confetti(){
+      this.x = Math.random() * canvas.width;
+      this.y = -20;
+      this.w = 8 + Math.random() * 6;
+      this.h = 12 + Math.random() * 8;
+      this.vx = -2 + Math.random() * 4;
+      this.vy = 3 + Math.random() * 3;
+      this.angle = Math.random() * Math.PI * 2;
+      this.spin = -0.1 + Math.random() * 0.2;
+      this.color = ['#ff6b9a', '#ffb5d3', '#ffd4e5', '#fff'][Math.floor(Math.random() * 4)];
+    }
+    
+    Confetti.prototype.update = function(){
+      this.x += this.vx;
+      this.y += this.vy;
+      this.angle += this.spin;
+      this.vy += 0.05;
+      if(this.y > canvas.height + 20) this.dead = true;
+    }
+    
+    Confetti.prototype.draw = function(){
+      ctx.save();
+      ctx.translate(this.x, this.y);
+      ctx.rotate(this.angle);
+      ctx.fillStyle = this.color;
+      ctx.fillRect(-this.w/2, -this.h/2, this.w, this.h);
+      ctx.restore();
+    }
+    
+    function runConfetti(){
+      for(let i = 0; i < 100; i++){
+        setTimeout(() => confetti.push(new Confetti()), i * 8);
+      }
+      
+      function animate(){
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        confetti.forEach(c => {
+          c.update();
+          c.draw();
+        });
+        confetti = confetti.filter(c => !c.dead);
+        if(confetti.length) requestAnimationFrame(animate);
+      }
+      animate();
+    }
+    
+    // Typed message
+    const messageEl = q('.message');
+    const specialMessage = 'Untuk yang tersayang, selamat ulang tahun yang ke-16. Semoga hari ini menjadi awal dari tahun yang penuh kebahagiaan dan kesuksesan. Terima kasih sudah menjadi cahaya dalam hidupku. Aku sayang kamu! 💖';
+    let isTyping = false;
+    
+    q('#messageBtn').addEventListener('click', () => {
+      if(isTyping) return;
+      isTyping = true;
+      messageEl.textContent = '';
+      
+      let i = 0;
+      const interval = setInterval(() => {
+        if(i >= specialMessage.length){
+          clearInterval(interval);
+          isTyping = false;
+          return;
+        }
+        messageEl.textContent += specialMessage[i];
+        i++;
+      }, 30);
+    });
+    
+    // Celebrate button
+    q('#celebrateBtn').addEventListener('click', () => {
+      showHearts();
+      runConfetti();
+    });
+    
+    // Auto-show hearts on load
+    window.addEventListener('load', () => {
+      setTimeout(() => showHearts(), 1000);
+    });
+  </script>
+</body>
+</html>
