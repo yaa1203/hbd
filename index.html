@@ -2,7 +2,7 @@
 <html lang="id">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no" />
   <title>Selamat Ulang Tahun ke-16 💖</title>
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600;700&family=Inter:wght@300;400;500;600;700&display=swap');
@@ -27,8 +27,9 @@
       display:flex;
       align-items:center;
       justify-content:center;
-      padding:1rem;
+      padding:0.5rem;
       overflow-x:hidden;
+      position:relative;
     }
     
     .card{
@@ -47,7 +48,7 @@
     }
     
     .photo-section{
-      padding:50px 30px 30px;
+      padding:40px 20px 25px;
       display:flex;
       flex-direction:column;
       align-items:center;
@@ -56,14 +57,15 @@
     }
     
     .photo-frame{
-      width:180px;
-      height:180px;
+      width:160px;
+      height:160px;
       border-radius:50%;
       overflow:hidden;
       border:4px solid var(--white);
       box-shadow:0 10px 30px rgba(255,107,154,0.2);
       position:relative;
       transition:transform 0.3s ease;
+      margin-bottom:20px;
     }
     
     .photo-frame:hover{
@@ -78,16 +80,16 @@
     }
     
     .content{
-      padding:30px 30px 50px;
+      padding:25px 20px 40px;
       text-align:center;
     }
     
     .title{
       font-family:'Cormorant Garamond', serif;
-      font-size:2.8rem;
+      font-size:2.2rem;
       font-weight:700;
       color:var(--primary);
-      margin-bottom:12px;
+      margin-bottom:8px;
       letter-spacing:-0.5px;
       position:relative;
       display:inline-block;
@@ -106,28 +108,28 @@
     }
     
     .subtitle{
-      font-size:0.9rem;
+      font-size:0.85rem;
       color:var(--gray);
-      margin-bottom:25px;
+      margin-bottom:20px;
       font-weight:500;
-      letter-spacing:3px;
+      letter-spacing:2px;
       text-transform:uppercase;
       opacity:0.8;
     }
     
     .divider{
-      width:60px;
+      width:50px;
       height:2px;
       background:linear-gradient(90deg, transparent, var(--primary), transparent);
-      margin:25px auto;
+      margin:20px auto;
     }
     
     .big-num{
       font-family:'Cormorant Garamond', serif;
-      font-size:4.5rem;
+      font-size:3.5rem;
       font-weight:700;
       color:var(--primary);
-      margin:20px 0;
+      margin:15px 0;
       line-height:1;
       position:relative;
       display:inline-block;
@@ -136,19 +138,19 @@
     .big-num:after{
       content:'th';
       position:absolute;
-      font-size:1rem;
+      font-size:0.8rem;
       top:5px;
-      right:-25px;
+      right:-20px;
       font-weight:400;
       font-family:'Inter', sans-serif;
     }
     
     .message{
-      font-size:1.1rem;
-      line-height:1.8;
+      font-size:1rem;
+      line-height:1.7;
       color:var(--gray);
-      margin:30px auto;
-      max-width:500px;
+      margin:25px auto;
+      max-width:400px;
       font-weight:400;
       text-align:justify;
       position:relative;
@@ -158,35 +160,38 @@
     .message:before, .message:after{
       content:'"';
       font-family:'Cormorant Garamond', serif;
-      font-size:3rem;
+      font-size:2.5rem;
       position:absolute;
       color:var(--accent);
       opacity:0.5;
     }
     
     .message:before{
-      top:-15px;
-      left:-10px;
+      top:-10px;
+      left:-5px;
     }
     
     .message:after{
       content:'"';
-      bottom:-30px;
-      right:-10px;
+      bottom:-25px;
+      right:-5px;
     }
     
     .controls{
       display:flex;
-      gap:15px;
-      justify-content:center;
-      margin-top:40px;
-      flex-wrap:wrap;
+      flex-direction:column;
+      gap:12px;
+      margin-top:30px;
+      width:100%;
+      max-width:300px;
+      margin-left:auto;
+      margin-right:auto;
     }
     
     .btn{
       background:var(--primary);
       color:var(--white);
-      padding:16px 32px;
+      padding:16px 24px;
       border-radius:30px;
       border:0;
       font-weight:600;
@@ -197,6 +202,7 @@
       box-shadow:0 4px 15px rgba(255,107,154,0.2);
       position:relative;
       overflow:hidden;
+      width:100%;
     }
     
     .btn:before{
@@ -217,7 +223,7 @@
     
     .btn:hover{
       background:#ff5284;
-      transform:translateY(-3px);
+      transform:translateY(-2px);
       box-shadow:0 8px 25px rgba(255,107,154,0.3);
     }
     
@@ -252,20 +258,18 @@
     /* Minimal floating hearts */
     .hearts{
       position:absolute;
-      right:20px;
-      top:20px;
-      pointer-events:none;
-      width:100%;
-      height:100%;
       top:0;
       left:0;
+      width:100%;
+      height:100%;
+      pointer-events:none;
       z-index:1;
       overflow:hidden;
     }
     
     .heart{
       position:absolute;
-      font-size:20px;
+      font-size:16px;
       opacity:0;
       animation:heartFloat 3s ease-out forwards;
     }
@@ -280,109 +284,79 @@
       }
       100%{
         opacity:0;
-        transform:translateY(-150px) scale(1.2) rotate(360deg);
+        transform:translateY(-120px) scale(1.2) rotate(360deg);
       }
     }
     
     /* Responsive */
-    @media(max-width:768px){
-      body{
-        padding:0.5rem;
-      }
-      
-      .card{
-        border-radius:16px;
-        box-shadow:0 5px 20px rgba(255,107,154,0.1);
-      }
-      
+    @media(min-width:481px){
       .photo-section{
-        padding:40px 20px 25px;
+        padding:50px 30px 30px;
       }
       
       .photo-frame{
-        width:150px;
-        height:150px;
+        width:180px;
+        height:180px;
       }
       
       .content{
-        padding:25px 25px 40px;
+        padding:30px 30px 50px;
       }
       
       .title{
-        font-size:2.2rem;
+        font-size:2.8rem;
       }
       
       .big-num{
-        font-size:3.5rem;
+        font-size:4.5rem;
       }
       
       .message{
-        font-size:1rem;
-        margin:20px auto;
-      }
-      
-      .btn{
-        padding:14px 28px;
-        font-size:0.95rem;
+        font-size:1.1rem;
+        max-width:500px;
       }
       
       .controls{
-        gap:10px;
-        margin-top:30px;
+        flex-direction:row;
+        gap:15px;
+        max-width:400px;
+      }
+      
+      .btn{
+        width:auto;
+        padding:16px 32px;
       }
     }
     
-    @media(max-width:480px){
-      body{
-        padding:0;
-      }
-      
+    @media(min-width:768px){
       .card{
-        border-radius:12px;
-        box-shadow:0 3px 15px rgba(255,107,154,0.08);
+        max-width:650px;
       }
       
       .photo-section{
-        padding:30px 15px 20px;
+        padding:60px 40px 30px;
       }
       
       .photo-frame{
-        width:130px;
-        height:130px;
+        width:200px;
+        height:200px;
       }
       
       .content{
-        padding:20px 20px 30px;
+        padding:40px 50px 60px;
       }
       
       .title{
-        font-size:1.8rem;
-      }
-      
-      .big-num{
         font-size:3rem;
       }
       
+      .big-num{
+        font-size:5rem;
+      }
+      
       .message{
-        font-size:0.95rem;
-        margin:15px auto;
-      }
-      
-      .btn{
-        padding:12px 24px;
-        font-size:0.9rem;
-        width:100%;
-        max-width:200px;
-      }
-      
-      .controls{
-        flex-direction:column;
-        gap:10px;
-        margin-top:25px;
-      }
-      
-      .btn.secondary{
-        order:-1;
+        font-size:1.2rem;
+        max-width:600px;
       }
     }
     
@@ -412,6 +386,25 @@
     
     .message, .controls{
       animation:fadeInUp 0.8s ease-out 0.6s both;
+    }
+    
+    /* Loading spinner */
+    .loading {
+      display: inline-block;
+      width: 20px;
+      height: 20px;
+      border: 3px solid rgba(255,255,255,.3);
+      border-radius: 50%;
+      border-top-color: #fff;
+      animation: spin 1s ease-in-out infinite;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+    
+    @keyframes spin {
+      to { transform: translate(-50%, -50%) rotate(360deg); }
     }
   </style>
 </head>
@@ -463,14 +456,15 @@
       heart.textContent = '💖';
       heart.style.left = Math.random() * 100 + '%';
       heart.style.top = Math.random() * 100 + '%';
-      heart.style.fontSize = (15 + Math.random() * 15) + 'px';
+      heart.style.fontSize = (12 + Math.random() * 12) + 'px';
       heartsContainer.appendChild(heart);
       
       setTimeout(() => heart.remove(), 3000);
     }
     
     function showHearts(){
-      for(let i = 0; i < 8; i++){
+      const heartCount = window.innerWidth < 480 ? 6 : 10;
+      for(let i = 0; i < heartCount; i++){
         setTimeout(() => createHeart(), i * 150);
       }
     }
@@ -491,10 +485,10 @@
     function Confetti(){
       this.x = Math.random() * canvas.width;
       this.y = -20;
-      this.w = 8 + Math.random() * 6;
-      this.h = 12 + Math.random() * 8;
+      this.w = window.innerWidth < 480 ? 4 + Math.random() * 4 : 8 + Math.random() * 6;
+      this.h = window.innerWidth < 480 ? 6 + Math.random() * 6 : 12 + Math.random() * 8;
       this.vx = -2 + Math.random() * 4;
-      this.vy = 3 + Math.random() * 3;
+      this.vy = window.innerWidth < 480 ? 2 + Math.random() * 2 : 3 + Math.random() * 3;
       this.angle = Math.random() * Math.PI * 2;
       this.spin = -0.1 + Math.random() * 0.2;
       this.color = ['#ff6b9a', '#ffb5d3', '#ffd4e5', '#fff'][Math.floor(Math.random() * 4)];
@@ -504,7 +498,7 @@
       this.x += this.vx;
       this.y += this.vy;
       this.angle += this.spin;
-      this.vy += 0.05;
+      this.vy += window.innerWidth < 480 ? 0.03 : 0.05;
       if(this.y > canvas.height + 20) this.dead = true;
     }
     
@@ -518,7 +512,8 @@
     }
     
     function runConfetti(){
-      for(let i = 0; i < 100; i++){
+      const confettiCount = window.innerWidth < 480 ? 60 : 100;
+      for(let i = 0; i < confettiCount; i++){
         setTimeout(() => confetti.push(new Confetti()), i * 8);
       }
       
@@ -544,16 +539,20 @@
       isTyping = true;
       messageEl.textContent = '';
       
+      const btn = q('#messageBtn');
+      btn.innerHTML = '<span class="loading"></span>';
+      
       let i = 0;
       const interval = setInterval(() => {
         if(i >= specialMessage.length){
           clearInterval(interval);
           isTyping = false;
+          btn.innerHTML = 'Pesan Spesial';
           return;
         }
         messageEl.textContent += specialMessage[i];
         i++;
-      }, 30);
+      }, window.innerWidth < 480 ? 40 : 30);
     });
     
     // Celebrate button
@@ -566,6 +565,16 @@
     window.addEventListener('load', () => {
       setTimeout(() => showHearts(), 1000);
     });
+    
+    // Prevent zoom on double tap
+    let lastTouchEnd = 0;
+    document.addEventListener('touchend', function (event) {
+      const now = (new Date()).getTime();
+      if (now - lastTouchEnd <= 300) {
+        event.preventDefault();
+      }
+      lastTouchEnd = now;
+    }, false);
   </script>
 </body>
 </html>
